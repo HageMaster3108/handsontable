@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * Version: 0.34.0
- * Date: Thu Jul 27 2017 13:34:25 GMT+0200 (CEST)
+ * Date: Thu Jan 25 2018 13:09:49 GMT+0100 (CET)
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -36528,7 +36528,7 @@ Handsontable.DefaultSettings = _defaultSettings2.default;
 Handsontable.EventManager = _eventManager2.default;
 Handsontable._getListenersCounter = _eventManager.getListenersCounter; // For MemoryLeak tests
 
-Handsontable.buildDate = "2017-07-27T11:34:25.509Z";
+Handsontable.buildDate = "2018-01-25T12:09:49.337Z";
 Handsontable.packageName = "handsontable";
 Handsontable.version = "0.34.0";
 
@@ -38751,6 +38751,9 @@ function getDeltas(start, end, data, direction) {
 
   if (['right', 'left'].indexOf(direction) !== -1) {
     for (var row = 0; row <= diffRow; row++) {
+      if (!data[row]) {
+        continue;
+      }
       var _startValue = parseInt(data[row][0], 10);
       var _endValue = parseInt(data[row][columnsLength - 1], 10);
       var _delta = (direction === 'right' ? _endValue - _startValue : _startValue - _endValue) / (columnsLength - 1) || 0;

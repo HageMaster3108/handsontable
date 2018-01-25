@@ -39,6 +39,7 @@ export function getDeltas(start, end, data, direction) {
 
   if (['right', 'left'].indexOf(direction) !== -1) {
     for (let row = 0; row <= diffRow; row++) {
+      if (!data[row]) { continue; }
       let startValue = parseInt(data[row][0], 10);
       let endValue = parseInt(data[row][columnsLength - 1], 10);
       let delta = (direction === 'right' ? (endValue - startValue) : (startValue - endValue)) / (columnsLength - 1) || 0;
